@@ -49,8 +49,8 @@ jobs:
         with:
           push: true
           tags: |
-            rtijm/hello-world:latest
-            rtijm/hello-world:${{ github.run_number }}
+            ${{ secrets.REGISTRY_URL }}/rtijm/hello-world:latest
+            ${{ secrets.REGISTRY_URL }}/rtijm/hello-world:${{ github.run_number }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
