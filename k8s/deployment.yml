@@ -1,12 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: hello-world-deployment
   labels:
     app: hello-world
-  name: hello-world
-  namespace: rtijm
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: hello-world
@@ -16,5 +15,7 @@ spec:
         app: hello-world
     spec:
       containers:
-        - image: image
-          name: hello-world
+        - name: hello-world
+          image: registry.pentacore.nl/rtijm/hello-world:version
+          ports:
+          - containerPort: 8080

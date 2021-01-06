@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+  name: tijm-net
+spec:
+  rules:
+  - host: tijm.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: hello-world-service
+            port:
+              number: 80
+        path: /
+  tls:
+  - hosts:
+    - tijm.net
+    - www.tijm.net
+    secretName: tijm-net-tls-cert
