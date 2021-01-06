@@ -22,6 +22,7 @@ jobs:
       - name: Test
         run: go test -v -cover ./...
   build:
+    needs: Test
     name: Build
     runs-on: ubuntu-latest
 
@@ -54,10 +55,14 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
   deploy:
+    needs: Build
     name: Deploy
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Set Context
         uses: azure/k8s-set-context@v1
         with:
