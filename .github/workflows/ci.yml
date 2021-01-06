@@ -81,7 +81,7 @@ jobs:
       - name: Deploy
         uses: Azure/k8s-deploy@v1.3
         with:
-          namespace: rtijm
+          namespace: rtijm-linkerd
           manifests: |
               k8s/deployment.yml
               k8s/service.yml
