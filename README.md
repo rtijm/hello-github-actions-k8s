@@ -1,4 +1,4 @@
-# hello-world
+# hello-github-actions-k8s
 First attempt to use github actions to create a CI/CD pipeline:
 1. Test a hello-world golang program
 2. Create a new container and deploy to a private repo
