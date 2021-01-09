@@ -3,6 +3,10 @@ name: ci
 on:
   push:
     branches: [main]
+    # Only build for changes to the go code and kubernetes manifests
+    paths:
+    - '**.go' 
+    - 'k8s/**.yml'
 
 jobs:
   test:
