@@ -21,5 +21,6 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - hello.tijm.net
-    secretName: hello-tijm-net-tls-cert
+    - tijm.net
+    - www.tijm.net
+    secretName: tijm-net-tls-cert
